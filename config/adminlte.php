@@ -113,6 +113,20 @@ return [
             'url'         => 'dashboard',
             'icon'        => 'dashboard',
             'acive'       => ['/dashboard']
+        ],
+
+        [
+            'text'        => 'Capturar Artigos',
+            'url'         => 'dashboard',
+            'icon'        => 'cogs',
+            'acive'       => ['/dashboard']
+        ],
+
+        [
+            'text'        => 'Exibir Artigos',
+            'url'         => 'dashboard',
+            'icon'        => 'newspaper-o',
+            'acive'       => ['/dashboard']
         ]
     ],
 
