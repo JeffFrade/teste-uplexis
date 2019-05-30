@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Core\Support\Controller;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
