@@ -19,6 +19,6 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'usuario' => 'admin',
-        'senha' => bcrypt('admin')
+        'password' => bcrypt('admin')
     ];
 });
