@@ -112,21 +112,21 @@ return [
             'text'        => 'Dashboard',
             'url'         => 'dashboard',
             'icon'        => 'dashboard',
-            'acive'       => ['/dashboard']
+            'active'       => ['dashboard']
         ],
 
         [
             'text'        => 'Capturar Artigos',
-            'url'         => 'dashboard',
+            'url'         => 'dashboard/crawler',
             'icon'        => 'cogs',
-            'acive'       => ['/dashboard']
+            'active'       => ['/dashboard/crawler', '/dashboard/crawler*', '/dashboard/crawler?*']
         ],
 
         [
             'text'        => 'Exibir Artigos',
             'url'         => 'dashboard',
             'icon'        => 'newspaper-o',
-            'acive'       => ['/dashboard']
+            'active'       => []//['/dashboard']
         ]
     ],
 

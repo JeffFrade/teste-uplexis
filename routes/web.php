@@ -19,4 +19,9 @@ Auth::routes();
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::group(['prefix' => 'crawler'], function () {
+        Route::get('/', 'CrawlerController@index')->name('crawler.index');
+        Route::post('/', 'CrawlerController@crawler')->name('crawler');
+    });
 });
