@@ -230,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'StringHelper' => \App\Helpers\StringHelper::class,
+        'PaginateHelper' => \App\Helpers\PaginateHelper::class,
     ],
 
 ];

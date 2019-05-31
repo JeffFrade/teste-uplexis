@@ -24,4 +24,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/', 'CrawlerController@index')->name('crawler.index');
         Route::post('/', 'CrawlerController@crawler')->name('crawler');
     });
+
+    Route::group(['prefix' => 'article'], function () {
+        Route::get('/', 'ArticleController@index')->name('article.index');
+        Route::delete('/{id}', 'ArticleController@delete')->name('article.delete');
+    });
 });
