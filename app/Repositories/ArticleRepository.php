@@ -10,4 +10,10 @@ class ArticleRepository extends AbstractRepository
     {
         $this->model = new Article();
     }
+
+    public function filter($search)
+    {
+        return $this->model->where('titulo', 'LIKE', '%' . $search . '%')
+            ->paginate();
+    }
 }
