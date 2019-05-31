@@ -3,27 +3,21 @@
 namespace App\Http;
 
 use App\Core\Support\Controller;
-use Illuminate\Http\Request;
+use App\Service\Article;
 
 class DashboardController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    private $article;
 
+    public function __construct(Article $article)
+    {
+        $this->article = $article;
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('dashboard');
+        $totalArticles = $this->article->countAll();
+
+        return view('dashboard', compact('totalArticles'));
     }
 }

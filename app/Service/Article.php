@@ -20,6 +20,11 @@ class Article
         return $this->articleRepository->filter($params['search'] ?? '');
     }
 
+    public function countAll()
+    {
+        return $this->articleRepository->countAll();
+    }
+
     public function delete($id)
     {
         return $this->articleRepository->delete($id);
