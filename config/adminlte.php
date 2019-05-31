@@ -124,9 +124,9 @@ return [
 
         [
             'text'        => 'Exibir Artigos',
-            'url'         => 'dashboard',
+            'url'         => 'dashboard/article',
             'icon'        => 'newspaper-o',
-            'active'       => []//['/dashboard']
+            'active'       => ['/dashboard/article', '/dashboard/article*', '/dashboard/article?*']
         ]
     ],
 

@@ -17,7 +17,7 @@ class Article
     {
         unset($params['page']);
 
-        return $this->articleRepository->filter($params);
+        return $this->articleRepository->filter($params['search'] ?? '');
     }
 
     public function delete($id)
