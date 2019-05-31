@@ -9,7 +9,6 @@
 @section('content')
     <div class="col-xs-12">
         <div class="row">
-            {{ Form::open(['route' => 'crawler.index', 'method' => 'GET']) }}
             <div class="box box-warning">
                 <div class="box-header">
                     <h3 class="box-title">Capturar Artigos</h3>
@@ -18,7 +17,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="search">Busca:</label>
-                        <input type="text" id="search" name="search" class="form-control" placeholder="Busca" value="{{ $params['search'] ?? '' }}">
+                        <input type="text" id="search" name="search" class="form-control" placeholder="Busca">
                     </div>
                 </div>
 
@@ -32,15 +31,32 @@
                     <i class="fa fa-refresh fa-spin"></i>
                 </div>
             </div>
-            {{ Form::close() }}
         </div>
     </div>
 @stop
 
 @section('js')
+    <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
         $('.btn-run').on('click', function () {
             $('.overlay').removeClass('hidden');
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    search: $('#search').val()
+                },
+                method: 'POST',
+
+                url: '/dashboard/crawler',
+                timeout: 0,
+
+                success: function (response) {
+                    $('.overlay').addClass('hidden');
+                    $.notify({message: response.msg}, {type: response.type})
+                }
+            });
         });
     </script>
 @stop

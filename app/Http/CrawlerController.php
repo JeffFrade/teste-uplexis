@@ -15,15 +15,20 @@ class CrawlerController extends Controller
         $this->crawler = $crawler;
     }
 
-    public function index(Request $request)
+    public function index()
+    {
+        return view('crawler.index');
+    }
+
+    public function crawler(Request $request)
     {
         $params = $request->all();
         $status = [];
 
-        if (isset($params['search'])) {
+        if (array_key_exists('search', $params)) {
             $status = $this->crawler->findInBlog($params);
         }
 
-        return view('crawler.index', compact('params', 'status'));
+        return response()->json($status);
     }
 }
